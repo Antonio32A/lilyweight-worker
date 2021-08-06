@@ -6,17 +6,18 @@ const handleRequest = async request => {
     const player = url.pathname.substr(1);
     const returnUsername = url.searchParams.get("returnUsername") === "true" ?? false;
 
-    if (!key) return respond({ success: false, error: "No Hypixel API key provided." });
-    if (!player) return respond({ success: false, error: "No player provided." });
+    if (!key) return respond(400, { success: false, error: "No Hypixel API key provided." });
+    if (!player) return respond(400, { success: false, error: "No player provided." });
 
     const lily = lilyweight(key);
     try {
-        return respond({ success: true, data: await lily.getWeight(player, returnUsername) });
+        return respond(200, { success: true, data: await lily.getWeight(player, returnUsername) });
     } catch {
-        return respond({ success: false, error: "Invalid API key or player provided." });
+        return respond(400, { success: false, error: "Invalid API key or player provided." });
     }
 };
 
-const respond = data => new Response(JSON.stringify(data), { headers: { "Content-Type": "application/json" } });
+const respond = (code, data) =>
+    new Response(JSON.stringify(data), { headers: { "Content-Type": "application/json" }, status: code });
 
 addEventListener("fetch", event => event.respondWith(handleRequest(event.request)));
