@@ -1,7 +1,7 @@
 {
-    "name": "cf-workers-template",
+    "name": "lilyweight",
     "description": "gaming",
-    "author": "Antonio32A (antonio32a.com)",
+    "author": "Antonio32A <~@antonio32a.com> (antonio32a.com)",
     "license": "MIT",
     "version": "1.0.0",
     "main": "dist/worker.js",
@@ -15,5 +15,7 @@
         "webpack": "^5.38.1",
         "webpack-cli": "^4.7.2"
     },
-    "dependencies": {}
+    "dependencies": {
+        "lilyweight": "^1.1.0"
+    }
 }
