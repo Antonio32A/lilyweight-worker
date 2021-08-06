@@ -1,0 +1,12 @@
+name = "lilyweight"
+type = "javascript"
+
+account_id = "24ec967e2cf51502655d350842bbb1cc"
+workers_dev = true
+route = ""
+zone_id = ""
+webpack_config = "webpack.config.js"
+
+[build]
+upload.format = "service-worker"
+command = "npm run build"
