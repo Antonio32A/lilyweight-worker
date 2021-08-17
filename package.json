@@ -16,6 +16,6 @@
         "webpack-cli": "^4.7.2"
     },
     "dependencies": {
-        "lilyweight": "^1.2.1"
+        "lilyweight": "^1.3.1"
     }
 }
