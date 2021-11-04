@@ -1,4 +1,4 @@
-import lilyweight from "lilyweight";
+import LilyWeight from "lilyweight";
 
 const handleRequest = async request => {
     const url = new URL(request.url);
@@ -9,7 +9,7 @@ const handleRequest = async request => {
     if (!key) return respond(400, { success: false, error: "No Hypixel API key provided." });
     if (!player) return respond(400, { success: false, error: "No player provided." });
 
-    const lily = lilyweight(key);
+    const lily = new LilyWeight(key);
     try {
         return respond(200, { success: true, data: await lily.getWeight(player, returnUsername) });
     } catch {
